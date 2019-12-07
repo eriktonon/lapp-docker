@@ -3,7 +3,7 @@
 ## Versions 
 * PHP Version 7.3.12
 * Apache Version 2.4
-* POSTGRES version 12
+* POSTGRESQL version 12
 
 ## Config default  
 * PostgreSQL PostgreSQL database and password settings are inside the .env file

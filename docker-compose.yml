@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  webserver:
+    image: eriktonon/php7.3.12
+    container_name: 'apache-php'
+    ports:
+      - "80:80"
+      - "443:443"
+    links: 
+      - postgres
+    volumes: 
+      - ${DOCUMENT_ROOT-./www}:/var/www/html
+      - ${PHP_INI-./.config/php/php.ini}:/usr/local/etc/php/php.ini
+      - ${VHOSTS_DIR-./.config/vhosts}:/etc/apache2/sites-enabled
+      - ${LOG_DIR-./logs/apache2}:/var/log/apache2
+    networks: 
+    - lapp-stack
+    
+  postgres:
+    container_name: postgresql
+    image: eriktonon/postgres:12.0
+    env_file: 
+    - .env
+    volumes:
+       - ./data/postgres
+    ports:
+      - "5432:5432"
+    networks: 
+      - lapp-stack
+    
+networks: 
+  lapp-stack:
