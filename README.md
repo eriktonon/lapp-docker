@@ -6,7 +6,7 @@
 * POSTGRESQL version 12
 
 ## Config default  
-* PostgreSQL PostgreSQL database and password settings are inside the .env file
+* PostgreSQL database and password settings are inside the .env file
 * Apache2 vhost mapping are within .config / vhosts
 * PHP a php file was left in the index to do some stack testing
 * Virtualhost /var/www/html
